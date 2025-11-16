@@ -39,9 +39,9 @@ venv\Scripts\activate
 source venv/bin/activate
 
 
-نصب وابستگی‌ها (اگر requirements.txt اضافه کرده باشی):
+نصب وابستگی‌ها :
 
-pip install -r requirements.txt
+pip install django
 
 
 اجرای سرور جنگو:
