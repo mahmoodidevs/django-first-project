@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لیست کاربران</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+        direction: rtl;
+      }
+      .container {
+        width: 90%;
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table th, table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+      }
+      table th {
+        background-color: #eee;
+      }
+      a {
+        text-decoration: none;
+      }
+      .delete-btn, .edit-btn, .id-link, .add-btn {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+      }
+      .delete-btn {
+        background-color: #e63946;
+      }
+      .delete-btn:hover {
+        background-color: #c1121f;
+      }
+      .edit-btn {
+        background-color: #f4a261;
+      }
+      .edit-btn:hover {
+        background-color: #e76f51;
+      }
+      a.id-link {
+        color: #1d3557;
+        font-weight: bold;
+      }
+      a.id-link:hover {
+        color: #457b9d;
+      }
+      .add-btn {
+        background-color: #457b9d;
+        margin-bottom: 20px;
+      }
+      .add-btn:hover {
+        background-color: #1d3557;
+      }
+      .top-actions {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>لیست کاربران</h1>
+
+    <div class="top-actions">
+        <a href="{% url 'add_customer' %}" class="add-btn">افزودن کاربر جدید</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>شناسه</th>
+                <th>نام</th>
+                <th>نام خانوادگی</th>
+                <th>عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in information %}
+            <tr>
+                <td><a href="{% url 'details' info.id %}" class="id-link">{{ info.id }}</a></td>
+                <td>{{ info.firstname }}</td>
+                <td>{{ info.lastname }}</td>
+                <td>
+                    <a href="{% url 'update_user' info.id %}" class="edit-btn">ویرایش</a>
+                    <a href="{% url 'delete_user' info.id %}" class="delete-btn">حذف</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">هیچ کاربری موجود نیست.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

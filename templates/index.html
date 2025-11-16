@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>صفحه اصلی</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+      }
+      .container {
+        width: 80%;
+        max-width: 600px;
+        margin: 100px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+      h1 {
+        margin-bottom: 30px;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #457b9d;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+      .button:hover {
+        background-color: #1d3557;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>خوش آمدید</h1>
+    <a href="{% url 'information' %}" class="button">لیست کاربران</a>
+</div>
+</body>
+</html>

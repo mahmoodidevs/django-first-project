@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>جزئیات کاربر</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+        direction: rtl;
+      }
+      .container {
+        width: 80%;
+        max-width: 500px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      table th, table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+      }
+      table th {
+        background-color: #eee;
+      }
+      .delete-btn, .button {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .delete-btn {
+        background-color: #e63946;
+      }
+      .delete-btn:hover {
+        background-color: #c1121f;
+      }
+      .button {
+        background-color: #457b9d;
+      }
+      .button:hover {
+        background-color: #1d3557;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>جزئیات کاربر</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>شناسه</th>
+                <th>نام</th>
+                <th>نام خانوادگی</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ object.id }}</td>
+                <td>{{ object.firstname }}</td>
+                <td>{{ object.lastname }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'delete_user' object.id %}" class="delete-btn">حذف کاربر</a>
+    <a href="{% url 'information' %}" class="button">بازگشت به لیست کاربران</a>
+</div>
+</body>
+</html>

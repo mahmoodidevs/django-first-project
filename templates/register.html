@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت ‌نام</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+        direction: rtl;
+      }
+      .container {
+        width: 80%;
+        max-width: 500px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input[type="text"], input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        background-color: #457b9d;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #1d3557;
+      }
+      .login-link {
+        display: block;
+        margin-top: 15px;
+        text-align: center;
+        color: #1d3557;
+        text-decoration: none;
+      }
+      .login-link:hover {
+        color: #457b9d;
+      }
+      .messages {
+        margin-bottom: 10px;
+        color: red;
+        text-align: center;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>ثبت‌نام</h2>
+
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ثبت ‌نام</button>
+    </form>
+
+    <a href="{% url 'login' %}" class="login-link">قبلاً حساب داری؟ وارد شو</a>
+</div>
+</body>
+</html>
